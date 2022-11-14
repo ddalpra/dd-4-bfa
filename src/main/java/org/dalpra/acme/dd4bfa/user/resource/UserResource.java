@@ -27,28 +27,53 @@ public class UserResource{
 
 	@Transactional(Transactional.TxType.REQUIRED)
 	public User addUser(User user) {
+		if(user.getUserCreation()== null) {
+			user.setUserCreation("Daniele");
+		}
+		if(user.getUserUpdating()==null)
+			user.setUserUpdating("Daniele");
+		if(user.getTimestampUpdating()==null) {
+			user.setTimestampUpdating(LocalDateTime.now());
+		}
+		if(user.getUserCreation()==null)
+			user.setTimestampCreation(LocalDateTime.now());
 		em.persist(user);
 		return user;
 	}
 
 	@Transactional(Transactional.TxType.REQUIRED)
-	public void updateUser(UUID id, User user) {
+	public User updateUser(UUID id, User user) {
+		System.out.println("questa è la data e ora "+ LocalDateTime.now().toString());
+		
 		User userToUpdate = em.find(User.class,id);
+		System.out.println(userToUpdate.toString());
 		if(userToUpdate != null) {
 			userToUpdate.setFirstName(user.getFirstName());
 			userToUpdate.setLastName(user.getLastName());
 			userToUpdate.setEmail(user.getEmail());
 			userToUpdate.setDob(user.getDob());
-			userToUpdate.setTimestampCreation(user.getTimestampCreation());
-			userToUpdate.setTimestampUpdating(LocalDateTime.now());
-			userToUpdate.setUserCreation(user.getUserCreation());
+			if(user.getUserCreation()!=null) {
+				userToUpdate.setUserCreation(user.getUserCreation());
+			}else {
+				userToUpdate.setUserCreation(userToUpdate.getUserCreation());
+			}
+			
 			userToUpdate.setUserUpdating("IO");
-
+			if(user.getUserCreation()!=null) {
+			userToUpdate.setTimestampCreation(user.getTimestampCreation());
+			}else {
+				userToUpdate.setTimestampCreation(userToUpdate.getTimestampCreation());
+			}
+			userToUpdate.setTimestampUpdating(LocalDateTime.now());
+			
 			em.persist(userToUpdate);
+			
 
 		} else {
 			throw new RuntimeException("No such User available");
+			
 		}
+		return userToUpdate;
 	}
 
 	@Transactional(Transactional.TxType.REQUIRED)

@@ -41,8 +41,7 @@ public class UserEndpoint {
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     public User updateContact(@PathParam("id") UUID id, User u) {
-    	userResource.updateUser(id, u);
-    	return u;
+    	return userResource.updateUser(id, u);
     }
 
     @POST

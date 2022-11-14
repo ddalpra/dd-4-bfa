@@ -76,5 +76,13 @@ public class EntityBase {
 		this.userUpdating = userUpdating;
 	}
 	
+	@Override
+	public String toString() {
+		return "EntityBase [id=" + id + ", timestampCreation=" + timestampCreation + ", timestampUpdating="
+				+ timestampUpdating + ", userCreation=" + userCreation + ", userUpdating=" + userUpdating + "]";
+	}
+	
+	
+	
 	
 }

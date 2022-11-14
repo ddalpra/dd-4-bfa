@@ -61,10 +61,15 @@ public class User extends EntityBase{
 	
 	
 	public User() {
-		
-		this.setTimestampCreation(LocalDateTime.now());
-		this.setTimestampUpdating(LocalDateTime.now());
-		
-		
 	}
+	@Override
+	public String toString() {
+		return "User [firstName=" + firstName + ", lastName=" + lastName + ", dob=" + dob + ", email=" + email
+				+ ", getId()=" + getId() + ", getTimestampCreation()=" + getTimestampCreation()
+				+ ", getTimestampUpdating()=" + getTimestampUpdating() + ", getUserCreation()=" + getUserCreation()
+				+ ", getUserUpdating()=" + getUserUpdating() + "]";
+	}
+	
+	
+	
 }
