@@ -1,12 +1,8 @@
 package org.dalpra.acme.dd4bfa.user.entity;
 
-
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
 import javax.persistence.Entity;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.dalpra.acme.dd4bfa.base.entity.EntityBase;
