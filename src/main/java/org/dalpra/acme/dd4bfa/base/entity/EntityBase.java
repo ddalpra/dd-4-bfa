@@ -33,6 +33,15 @@ public class EntityBase {
     @Column(name = "USER_UPDATING", nullable = false) 
     private String userUpdating;
     
+    @Column(name = "VALIDITY", nullable = true)
+    private Validity validity;
+    
+	public Validity getValidity() {
+		return validity;
+	}
+	public void setValidity(Validity validity) {
+		this.validity = validity;
+	}
 	public UUID getId() {
 		return id;
 	}

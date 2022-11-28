@@ -43,10 +43,7 @@ public class UserResource{
 
 	@Transactional(Transactional.TxType.REQUIRED)
 	public User updateUser(UUID id, User user) {
-		System.out.println("questa è la data e ora "+ LocalDateTime.now().toString());
-		
 		User userToUpdate = em.find(User.class,id);
-		System.out.println(userToUpdate.toString());
 		if(userToUpdate != null) {
 			userToUpdate.setFirstName(user.getFirstName());
 			userToUpdate.setLastName(user.getLastName());
