@@ -1,4 +1,4 @@
-package org.dalpra.acme.dd4bfa.company.resource;
+package org.dalpra.acme.dd4bfa.organization.resource;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -9,7 +9,8 @@ import javax.inject.Singleton;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
-import org.dalpra.acme.dd4bfa.company.entity.Organization;
+import org.dalpra.acme.dd4bfa.organization.entity.Organization;
+
 
 @Singleton
 public class OrganizationResource {
@@ -17,7 +18,7 @@ public class OrganizationResource {
 	@Inject
 	EntityManager em;
 
-	public List<Organization> getOrganization(){
+	public List<Organization> getOrganizations(){
 		return em.createQuery("SELECT o FROM Organization o").getResultList();
 	}
 	

@@ -1,4 +1,4 @@
-package org.dalpra.acme.dd4bfa.company.entity;
+package org.dalpra.acme.dd4bfa.organization.entity;
 
 import java.time.LocalDateTime;
 
