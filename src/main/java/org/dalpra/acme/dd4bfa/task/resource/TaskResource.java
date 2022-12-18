@@ -12,5 +12,4 @@ public class TaskResource implements PanacheRepositoryBase<Task,UUID>{
 		return find("description",description).firstResult();
 	}
 	
-	
 }

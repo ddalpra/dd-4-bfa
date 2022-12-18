@@ -2,6 +2,7 @@ package org.dalpra.acme.dd4bfa.task.entity;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,7 +19,7 @@ public class CommentTask extends EntityBase{
 	
 	private String comment;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name ="fk_task")
     @JsonBackReference
     private Task task;    

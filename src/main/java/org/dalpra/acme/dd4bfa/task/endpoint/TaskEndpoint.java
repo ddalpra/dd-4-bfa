@@ -1,6 +1,7 @@
 package org.dalpra.acme.dd4bfa.task.endpoint;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -50,6 +51,8 @@ public class TaskEndpoint {
 	@POST
     @Transactional
     public Task create(Task task) {
+		System.out.println(task.toString());
+			
         taskResource.persist(task);
         return task;
     }
@@ -89,7 +92,4 @@ public class TaskEndpoint {
 			ctResource.persist(commentTask);
 		}
 	}
-	
-	
-	
 }

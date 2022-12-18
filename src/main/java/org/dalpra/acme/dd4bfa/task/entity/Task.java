@@ -20,9 +20,9 @@ public class Task extends EntityBase{
 	
 	private String description;
 
-	@OneToMany(mappedBy = "task", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "task", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonManagedReference
-    private List<CommentTask> comments = new ArrayList<>();
+    private List<CommentTask> comments = new ArrayList<CommentTask>();
 	
 	public String getDescription() {
 		return description;
@@ -50,6 +50,16 @@ public class Task extends EntityBase{
 	public Task() {
 		
 	}
+
+	@Override
+	public String toString() {
+		return "Task [description=" + description + ", comments=" + comments + ", id=" + getId()
+				+ ", getTimestampCreation()=" + getTimestampCreation() + ", getTimestampUpdating()="
+				+ getTimestampUpdating() + ", getUserCreation()=" + getUserCreation() + ", getUserUpdating()="
+				+ getUserUpdating() + "]";
+	}
+
+	
 	
 	
 }
